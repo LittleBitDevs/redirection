@@ -8,18 +8,15 @@
         window.onload = function() {
             // Obtener los parámetros de la URL
             const params = new URLSearchParams(window.location.search);
-            const redirectUrl = params.get("url"); // Parámetro 'url'
+            const org = params.get("org");
+            const crm = params.get("crm");
+            const appid = params.get("appid");
+            const pagetype = params.get("pagetype");
+            const entity = params.get("entity");
+            const id = params.get("id");
 
-            if (redirectUrl) {
-                // Asegurarse de que la URL sea absoluta
-                const absoluteUrl = new URL(redirectUrl, window.location.origin).href;
-
-                // Redirigir al usuario a la URL absoluta
-                window.location.href = "https://www.google.es";
-            } else {
-                // Si no se pasa el parámetro 'url', mostrar un error
-                document.body.innerHTML = "<h1>Error: No se ha proporcionado una URL de redirección.</h1>";
-            }
+            // Redirigir al usuario a la URL absoluta
+            window.location.href = `https://${org}.${crm}.dynamics.com/main.aspx?appid=${appid}&pagetype=${pagetype}&etn=${entity}&id=${id}`;
         }
     </script>
 </head>
