@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirección Dinámica</title>
+    <script>
+        window.onload = function() {
+            // Obtener los parámetros de la URL
+            const params = new URLSearchParams(window.location.search);
+            const redirectUrl = params.get("url"); // Parámetro 'url'
+
+            if (redirectUrl) {
+                // Redirigir al usuario a la URL especificada
+                window.location.href = redirectUrl;
+            } else {
+                // Si no se pasa el parámetro 'url', mostrar un error
+                document.body.innerHTML = "<h1>Error: No se ha proporcionado una URL de redirección.</h1>";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Redirigiendo...</h1>
+</body>
+</html>
