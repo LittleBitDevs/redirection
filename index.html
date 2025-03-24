@@ -11,8 +11,11 @@
             const redirectUrl = params.get("url"); // Parámetro 'url'
 
             if (redirectUrl) {
-                // Redirigir al usuario a la URL especificada
-                window.location.href = redirectUrl;
+                // Asegurarse de que la URL sea absoluta
+                const absoluteUrl = new URL(redirectUrl, window.location.origin).href;
+
+                // Redirigir al usuario a la URL absoluta
+                window.location.href = absoluteUrl;
             } else {
                 // Si no se pasa el parámetro 'url', mostrar un error
                 document.body.innerHTML = "<h1>Error: No se ha proporcionado una URL de redirección.</h1>";
